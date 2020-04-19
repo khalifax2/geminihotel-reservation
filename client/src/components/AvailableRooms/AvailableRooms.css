@@ -1,0 +1,86 @@
+.progress-bar {
+  position: absolute;
+  display: inline;
+  background-color: #322b23;
+  padding: 13px;
+  border-radius: 4px;
+}
+
+#step1,
+#step2,
+#step3,
+#step4 {
+  padding-left: 48px;
+  padding-right: 47px;
+  color: #cab193;
+}
+
+.room-container {
+  /* background-color: burlywood; */
+  margin-top: 69px;
+  height: 100%;
+}
+
+.room-image {
+  position: absolute;
+  /* background-color: #5f5243; */
+  background-image: url("../../img/rooms/photo-1.jpg");
+  background-size: cover;
+  height: 215px;
+  width: 287px;
+}
+
+.room-content {
+  /* background-color: #764a41; */
+  margin-left: 323px;
+  height: 236px;
+}
+
+.room-title {
+  margin-bottom: 15px;
+  color: #ad977b;
+}
+
+.room-spec {
+  border: 1px solid black;
+  border-color: #3a3a3a;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 15px;
+  display: block;
+  width: 100%;
+  color: white;
+}
+
+.room-details p {
+  margin-top: 10px;
+  margin-bottom: 2rem;
+  color: #a3a3a3;
+}
+
+#btn-select {
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  float: left;
+  margin-bottom: 0;
+  background-color: #b89f80;
+  border-color: #a38363;
+  padding: 6px 8px;
+  color: white;
+}
+
+#rp-tail {
+  margin-left: 10px;
+  font-size: 25px;
+  color: #74b7d3;
+}
+
+#rp-head {
+  color: #a3a3a3;
+  font-style: italic;
+}
+
+.room-price {
+  float: right;
+  font-family: "Merriweather";
+}

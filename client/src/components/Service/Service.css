@@ -1,0 +1,5 @@
+@media (min-width: 576px) {
+  .card-deck {
+    margin: 65px 200px;
+  }
+}

@@ -1,0 +1,19 @@
+.dropdown-toggle {
+  background-color: #5f5243;
+  width: 50px;
+}
+
+.dropdown-menu > a:hover {
+  background-color: #216ba5;
+  background-image: none;
+}
+
+.dropdown-menu.show {
+  width: -20px;
+  background-color: #5f5243;
+  /* color: #fff; */
+}
+
+.dropdown-item {
+  color: #fff;
+}

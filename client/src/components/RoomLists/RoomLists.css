@@ -1,0 +1,34 @@
+#rl-children,
+#rl-adults {
+  display: inline;
+  font-size: 13px;
+}
+
+.room-lists {
+  float: right;
+  padding-top: 20px;
+  margin-right: 20px;
+}
+
+.rl-adults-drp,
+.rl-children-drp {
+  display: inline;
+  margin-right: 25px;
+}
+
+.rl-lbl-ad,
+.rl-lbl-ch {
+  color: #fff;
+  font-size: 13px;
+}
+
+.rl-lbl-ad {
+  margin-right: 20px;
+  margin-left: 87px;
+}
+
+.rl-rm-no {
+  font-size: 13px;
+  color: #fff;
+  margin-right: 40px;
+}

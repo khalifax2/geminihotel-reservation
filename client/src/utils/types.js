@@ -1,0 +1,16 @@
+export const BOOK_SEARCH = "BOOK_SEARCH";
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGIN_FAIL = "LOGIN_FAIL";
+export const SIGNUP_SUCCESS = "SIGNUP_SUCCESS";
+export const SIGNUP_FAIL = "SIGNUP_FAIL";
+export const SET_ALERT = "SET_ALERT";
+export const REMOVE_ALERT = "REMOVE_ALERT";
+export const RESET_ALERT = "RESET_ALERT";
+export const HANDLE_CLOSE_LOGIN = "HANDLE_CLOSE_LOGIN";
+export const HANDLE_SHOW_LOGIN = "HANDLE_SHOW_LOGIN";
+export const HANDLE_CLOSE_SIGNUP = "HANDLE_CLOSE_SIGNUP";
+export const HANDLE_SHOW_SIGNUP = "HANDLE_SHOW_SIGNUP";
+export const FORM_TYPE = "FORM_TYPE";
+export const AVAILABLE_ROOMS = "AVAILABLE_ROOMS";
+export const SETFORM_DATA = "SETFORM_DATA";
+export const LOAD_USER = "LOAD_USER";

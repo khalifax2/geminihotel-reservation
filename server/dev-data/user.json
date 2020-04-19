@@ -1,0 +1,8 @@
+{
+  "firstName": "Jericho",
+  "lastName": "Castro",
+  "email": "echocastro@gmail.com",
+  "role": "admin",
+  "password": "12345678",
+  "passwordConfirm": "12345678"
+}

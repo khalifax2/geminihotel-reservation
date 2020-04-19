@@ -1,0 +1,54 @@
+.reservation-form {
+  background-color: #322b23;
+  height: 350px;
+  margin-top: 30px;
+  border-radius: 5px;
+  width: 300px;
+  margin-left: 50px;
+}
+
+.col-lg-8 {
+  /* background-color: #b5c1e6; */
+  position: relative;
+  height: 100%;
+  margin-top: 30px;
+}
+
+.bg-reservation {
+  background-color: #000;
+  /* height: 100%; */
+  /* position: relative; */
+}
+
+#reservation-label {
+  color: #fff;
+  text-align: center;
+  padding-top: 20px;
+  font-family: Merriweather;
+}
+
+.r-label-check,
+.r-label-rooms {
+  color: #fff;
+  margin-top: 20px;
+  margin-left: 20px;
+  font-size: 13px;
+}
+
+.r-check-in,
+.r-check-out {
+  height: 30px;
+  background-color: #5f5243;
+  border-color: #5f5243;
+  color: #fff;
+  border: 0;
+  padding-left: 15px;
+  width: 150px;
+  margin-left: 20px;
+}
+
+.r-rooms-drp {
+  width: 50px;
+  margin-left: 20px;
+}
+/* */

@@ -1,0 +1,12 @@
+.lbl-signup {
+  padding-left: 0 !important;
+}
+
+.btn-close {
+  margin-left: 99px;
+}
+
+p.error {
+  color: #bf1650;
+  font-size: 13px;
+}

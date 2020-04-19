@@ -1,0 +1,11 @@
+.checkin,
+.checkout {
+  height: 40px;
+  border-radius: 5px;
+  display: inline;
+  background-color: #5f5243;
+  border-color: #5f5243;
+  color: #fff;
+  border: 0;
+  padding-left: 15px;
+}
