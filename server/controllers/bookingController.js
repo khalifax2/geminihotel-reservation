@@ -5,32 +5,33 @@ const catchAsync = require("../utils/catchAsync");
 
 exports.getBookNow = catchAsync(async (req, res, next) => {
   const { start, end, capacity } = req.params;
-  console.log("START", start);
-  console.log("END", end);
+
   const books = await Book.find({
     $or: [
       { dateStart: { $lte: start }, dateEnd: { $gte: start } },
       { dateStart: { $lte: end }, dateEnd: { $gte: end } },
-      { dateStart: { $gte: start }, dateEnd: { $lte: end } }
-    ]
+      { dateStart: { $gte: start }, dateEnd: { $lte: end } },
+    ],
   });
 
   const rooms = await Room.find({
-    capacity: { $eq: capacity }
+    capacity: { $eq: capacity },
   });
 
   let available;
   // eslint-disable-next-line no-restricted-syntax
   if (books.length > 0) {
     for (const book of books) {
-      available = rooms.filter(room => String(book.room) !== String(room._id));
+      available = rooms.filter(
+        (room) => String(book.room) !== String(room._id)
+      );
     }
   } else {
     available = rooms;
   }
 
   res.status(200).json({
-    data: available
+    data: available,
   });
 });
 
@@ -38,7 +39,7 @@ exports.getBooks = catchAsync(async (req, res, next) => {
   const bookRecord = await Book.find();
 
   res.status(200).json({
-    data: bookRecord
+    data: bookRecord,
   });
 });
 
@@ -47,7 +48,7 @@ exports.getMyBook = catchAsync(async (req, res, next) => {
 
   res.status(200).json({
     status: "sucess",
-    data: myBooked
+    data: myBooked,
   });
 });
 
@@ -60,7 +61,7 @@ exports.createBook = catchAsync(async (req, res, next) => {
     amount,
     events,
     user,
-    room
+    room,
   });
 
   res.status(201).json({ status: "sucess", data: book });
@@ -75,7 +76,7 @@ exports.cancelBook = catchAsync(async (req, res, next) => {
 
   res.status(200).json({
     status: "sucess",
-    message: "Book Deleted."
+    message: "Book Deleted.",
   });
 });
 
@@ -91,7 +92,7 @@ exports.checkIn = catchAsync(async (req, res, next) => {
 
   res.status(200).json({
     status: "success",
-    data: book
+    data: book,
   });
 });
 
@@ -107,7 +108,7 @@ exports.checkOut = catchAsync(async (req, res, next) => {
 
   res.status(200).json({
     status: "success",
-    data: book
+    data: book,
   });
 });
 

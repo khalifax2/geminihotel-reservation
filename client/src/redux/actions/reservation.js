@@ -5,7 +5,7 @@ import moment from "moment-timezone";
 export const bookSearch = ({ checkIn, checkOut, rooms, num = 1 }) => async (
   dispatch
 ) => {
-  const { adults, children } = rooms[num - 1][`room${num}`];
+  const { adults, children } = rooms[num - 1][`room`];
   const start = moment.tz(checkIn, "Asia/Manila");
   const end = moment.tz(checkOut, "Asia/Manila");
   const capacity = parseInt(adults) + parseInt(children);
@@ -18,7 +18,7 @@ export const bookSearch = ({ checkIn, checkOut, rooms, num = 1 }) => async (
 
     dispatch({
       type: BOOK_SEARCH,
-      payload: { checkIn, checkOut, rooms },
+      payload: { checkIn, checkOut },
     });
 
     dispatch({

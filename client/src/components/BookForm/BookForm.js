@@ -15,8 +15,8 @@ const BookForm = ({ bookSearch, isAuthenticated }) => {
   const [formData, setFormData] = useState({
     checkIn: new Date(),
     checkOut: "",
-    rooms: [{ room1: { adults: 1, children: 0 } }],
-    direct: false
+    rooms: [{ room: { adults: 1, children: 0 } }],
+    direct: false,
   });
 
   const { checkIn, checkOut, direct, rooms } = formData;
@@ -34,16 +34,16 @@ const BookForm = ({ bookSearch, isAuthenticated }) => {
         ...formData,
         rooms: [
           {
-            room1: { ...formData.rooms[0].room1, [name]: value }
-          }
-        ]
+            room: { ...formData.rooms[0].room, [name]: value },
+          },
+        ],
       });
     } else {
       setFormData({ ...formData, [name]: value });
     }
   };
 
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     e.preventDefault();
     bookSearch({ checkIn, checkOut, rooms });
     checkIn && checkOut && setFormData({ ...formData, direct: true });
@@ -56,14 +56,14 @@ const BookForm = ({ bookSearch, isAuthenticated }) => {
   return (
     <div className="book-form">
       <h2 className="bn-label">Book now!</h2>
-      <Form onSubmit={e => onSubmit(e)}>
+      <Form onSubmit={(e) => onSubmit(e)}>
         <span id="checkin-label">CHECK IN</span>
         <Form.Group controlId="check-in">
           <DatePick
             minDate={new Date()}
             className="checkin"
             value={checkIn}
-            onChange={e => onChange(e, "checkIn")}
+            onChange={(e) => onChange(e, "checkIn")}
           />
         </Form.Group>
         <span id="checkout-label">CHECK OUT</span>
@@ -72,21 +72,21 @@ const BookForm = ({ bookSearch, isAuthenticated }) => {
             minDate={checkIn}
             className="checkout"
             value={checkOut}
-            onChange={e => onChange(e, "checkOut")}
+            onChange={(e) => onChange(e, "checkOut")}
           />
         </Form.Group>
         <Form.Group>
           <ButtonToolbar>
             <span id="adults">ADULTS</span>
             <DropdownCustom
-              title={rooms[0].room1.adults}
-              select={e => onChange(e, "adults")}
+              title={rooms[0].room.adults}
+              select={(e) => onChange(e, "adults")}
               name="adult-drp"
             />
             <span id="children">CHILDREN</span>
             <DropdownCustom
-              title={rooms[0].room1.children}
-              select={e => onChange(e, "children")}
+              title={rooms[0].room.children}
+              select={(e) => onChange(e, "children")}
               name="children-drp"
             />
           </ButtonToolbar>
@@ -104,8 +104,8 @@ const BookForm = ({ bookSearch, isAuthenticated }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
 });
 
 export default connect(mapStateToProps, { bookSearch })(BookForm);
