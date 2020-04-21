@@ -13,15 +13,7 @@ import RoomLists from "../../components/RoomLists/RoomLists";
 
 import "./reservation.css";
 
-const Rooms = ({
-  checkIn,
-  checkOut,
-  adults,
-  children,
-  rooms,
-  bookSearch,
-  setFormData,
-}) => {
+const Rooms = ({ checkIn, checkOut }) => {
   // const [formData, setFormData] = useState({
   //   roomQty: 1
   // });
@@ -42,7 +34,6 @@ const Rooms = ({
   //   await bookSearch({ checkIn, checkOut, adults, children });
   //   checkIn && checkOut && setFormData({ ...formData, direct: true });
   // };
-  console.log("CHECKIN", checkIn);
   return (
     <div className="bg-reservation">
       <Navbar />
@@ -104,9 +95,6 @@ const Rooms = ({
 const mapStateToProps = (state) => ({
   checkIn: state.reservation.form.checkIn,
   checkOut: state.reservation.form.checkOut,
-  adults: state.reservation.form.adults,
-  children: state.reservation.form.children,
-  rooms: state.reservation.form.rooms,
 });
 
 export default connect(mapStateToProps, { bookSearch })(Rooms);

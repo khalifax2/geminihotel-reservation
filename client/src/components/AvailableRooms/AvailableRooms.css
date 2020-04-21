@@ -24,7 +24,7 @@
 .room-image {
   position: absolute;
   /* background-color: #5f5243; */
-  background-image: url("../../img/rooms/photo-1.jpg");
+  /* background-image: url("../../img/rooms/photo-1.jpg"); */
   background-size: cover;
   height: 215px;
   width: 287px;
@@ -54,7 +54,7 @@
 
 .room-details p {
   margin-top: 10px;
-  margin-bottom: 2rem;
+  margin-bottom: 7px;
   color: #a3a3a3;
 }
 
@@ -67,6 +67,7 @@
   border-color: #a38363;
   padding: 6px 8px;
   color: white;
+  margin-top: 17px;
 }
 
 #rp-tail {
@@ -80,7 +81,30 @@
   font-style: italic;
 }
 
+/* .description {
+  margin-bottom: 5px;
+} */
+
 .room-price {
   float: right;
   font-family: "Merriweather";
+  margin-top: 17px;
+}
+
+.qty-adult,
+.qty-child {
+  color: #fff;
+}
+
+.qty-adult {
+  margin-right: 20px;
+}
+
+.inc,
+.dec {
+  font-size: 20px;
+  cursor: pointer;
+  color: #ad977b;
+  font-size: 10px;
+  padding-top: -10px;
 }

@@ -29,11 +29,3 @@ export const bookSearch = ({ checkIn, checkOut, rooms, num = 1 }) => async (
     console.log("error");
   }
 };
-
-// export const setFormData = ({ name, value }) => async dispatch => {
-//   try {
-//     dispatch({ })
-//   } catch (error) {
-
-//   }
-// };
