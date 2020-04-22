@@ -23,7 +23,7 @@ const AvailableRooms = ({ rooms, setCount, selectRoom }) => {
           adult,
           child,
         } = room;
-        console.log(adult);
+
         return (
           <div className="xs room-container" key={_id}>
             <div

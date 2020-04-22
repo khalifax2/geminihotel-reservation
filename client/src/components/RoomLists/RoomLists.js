@@ -1,34 +1,27 @@
 import React from "react";
-
-import DropdownCustom from "../Dropdown/DropdownCustom";
+import { connect } from "react-redux";
 
 import "./RoomLists.css";
 
-const RoomLists = ({ no, onChange, noAdults, noChildren }) => {
-  console.log(noAdults, noChildren);
-
-  return (
-    <div className="room-lists">
-      <span className="rl-lbl-ad">ADULTS</span>
-      <span className="rl-lbl-ch">CHILDREN</span>
-      <br />
-      <span className="rl-rm-no">ROOM {no}</span>
-      <div id="rl-adults">
-        <DropdownCustom
-          name="rl-adults-drp"
-          title={noAdults}
-          select={e => onChange(e, "adults")}
-        />
-      </div>
-      <div id="rl-children">
-        <DropdownCustom
-          name="rl-children-drp"
-          title={noChildren}
-          select={e => onChange(e, "children")}
-        />
-      </div>
-    </div>
-  );
+const RoomLists = ({ selectedRoom }) => {
+  {
+    return selectedRoom.map((room, idx) => {
+      return (
+        <div className="room-breakdown">
+          <div className="room-title">
+            Room {++idx} :<span> {room.title}</span>
+          </div>
+          <div className="guest-count">
+            <span className="adult-count">Adult : {room.adult}</span>{" "}
+            <span className="child-count">Child : {room.child}</span>
+          </div>
+        </div>
+      );
+    });
+  }
 };
 
-export default RoomLists;
+const mapStateToProps = (state) => ({
+  selectedRoom: state.reservation.selectedRooms,
+});
+export default connect(mapStateToProps)(RoomLists);

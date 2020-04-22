@@ -1,34 +1,21 @@
-#rl-children,
-#rl-adults {
-  display: inline;
-  font-size: 13px;
+.room-title {
+  color: #7b6549;
+  font-weight: 700;
 }
-
-.room-lists {
-  float: right;
-  padding-top: 20px;
-  margin-right: 20px;
+.guest-count {
+  font-style: italic;
+  color: #9b9288;
+  text-align: center;
 }
-
-.rl-adults-drp,
-.rl-children-drp {
-  display: inline;
-  margin-right: 25px;
+.child-count {
+  margin-left: 10px;
 }
-
-.rl-lbl-ad,
-.rl-lbl-ch {
-  color: #fff;
-  font-size: 13px;
+.adult-count {
+  margin-left: -10px;
 }
-
-.rl-lbl-ad {
-  margin-right: 20px;
-  margin-left: 87px;
-}
-
-.rl-rm-no {
-  font-size: 13px;
-  color: #fff;
-  margin-right: 40px;
+.room-breakdown {
+  background-color: #4a453f;
+  padding: 10px;
+  margin-left: -20px;
+  margin-bottom: 10px;
 }

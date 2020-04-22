@@ -3,6 +3,7 @@ import React from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Slider from "../../components/Slider/Slider";
 import Service from "../../components/Service/Service";
+import Footer from "../../components/Footer/Footer";
 
 import "./hompage.css";
 
@@ -12,6 +13,7 @@ const Homepage = () => {
       <Navbar />
       <Slider />
       <Service />
+      <Footer />
     </div>
   );
 };

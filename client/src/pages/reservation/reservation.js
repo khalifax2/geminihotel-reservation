@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { Container, Row, Col } from "react-bootstrap";
 
@@ -8,32 +8,12 @@ import { setFormData } from "../../redux/actions/reservation";
 import DatePick from "../../components/DatePick/DatePick";
 import Navbar from "../../components/Navbar/Navbar";
 import AvailableRooms from "../../components/AvailableRooms/AvailableRooms";
-import DropdownCustom from "../../components/Dropdown/DropdownCustom";
 import RoomLists from "../../components/RoomLists/RoomLists";
+import Footer from "../../components/Footer/Footer";
 
 import "./reservation.css";
 
-const Rooms = ({ checkIn, checkOut }) => {
-  // const [formData, setFormData] = useState({
-  //   roomQty: 1
-  // });
-
-  // useEffect(() => {
-  //   if (checkIn > checkOut && checkOut !== "") {
-  //     setFormData({ ...formData, checkOut: "" });
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [checkIn]);
-
-  // const onChange = (value, name) => {
-  //   setFormData({ name, value });
-  // };
-
-  // const onSubmit = async e => {
-  //   e.preventDefault();
-  //   await bookSearch({ checkIn, checkOut, adults, children });
-  //   checkIn && checkOut && setFormData({ ...formData, direct: true });
-  // };
+const Rooms = ({ checkIn, checkOut, selectedRoom }) => {
   return (
     <div className="bg-reservation">
       <Navbar />
@@ -57,23 +37,10 @@ const Rooms = ({ checkIn, checkOut }) => {
                   value={Date.parse(checkOut)}
                   // onChange={e => onChange(e, "checkOut")}
                 />
-                <div className="r-label-rooms">ROOMS</div>
-                {/* <DropdownCustom
-                  name="r-rooms-drp"
-                  title={roomQty}
-                  select={e => onChange(e, "roomQty")}
-                />
-                {[...Array(parseInt(roomQty)).keys()].map(i => {
-                  return (
-                    <RoomLists
-                      key={i}
-                      no={i + 1}
-                      adults={adults}
-                      children={children}
-                      onChange={onChange}
-                    />
-                  );
-                })} */}
+                <div className="r-label-rooms">
+                  <h6>ROOM</h6>
+                  {selectedRoom.length > 0 && <RoomLists />}
+                </div>
               </form>
             </div>
           </Col>
@@ -88,6 +55,7 @@ const Rooms = ({ checkIn, checkOut }) => {
           </Col>
         </Row>
       </Container>
+      <Footer />
     </div>
   );
 };
@@ -95,6 +63,7 @@ const Rooms = ({ checkIn, checkOut }) => {
 const mapStateToProps = (state) => ({
   checkIn: state.reservation.form.checkIn,
   checkOut: state.reservation.form.checkOut,
+  selectedRoom: state.reservation.selectedRooms,
 });
 
 export default connect(mapStateToProps, { bookSearch })(Rooms);
