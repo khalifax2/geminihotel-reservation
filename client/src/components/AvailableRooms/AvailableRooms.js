@@ -1,35 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChild, faMale } from "@fortawesome/free-solid-svg-icons";
 
+import { setCount } from "../../redux/actions/reservation";
+
 import "./AvailableRooms.css";
 
-const AvailableRooms = ({ rooms }) => {
-  const [adultCount, setAdultCount] = useState(0);
-  const [childCount, setChildCount] = useState(0);
-
-  const onClick = (e) => {
-    if (e.target.name === "incAdult")
-      setAdultCount((prevCount) => prevCount + 1);
-    if (e.target.name === "incChild")
-      setChildCount((prevCount) => prevCount + 1);
-    if (adultCount > 0) {
-      if (e.target.name === "decAdult")
-        setAdultCount((prevCount) => prevCount - 1);
-    }
-    if (childCount > 0) {
-      if (e.target.name === "decChild")
-        setChildCount((prevCount) => prevCount - 1);
-    }
-  };
+const AvailableRooms = ({ rooms, setCount }) => {
+  useEffect(() => {}, [rooms]);
 
   return (
     <>
       {rooms.map((room) => {
-        const { _id, bed, type, capacity, rate, description, url } = room;
-
+        const {
+          _id,
+          bed,
+          type,
+          capacity,
+          rate,
+          description,
+          url,
+          adult,
+          child,
+        } = room;
+        console.log(adult);
         return (
           <div className="xs room-container" key={_id}>
             <div
@@ -48,16 +44,14 @@ const AvailableRooms = ({ rooms }) => {
                 <span className="qty-adult">
                   <button
                     className="dec"
-                    onClick={(e) => onClick(e)}
-                    name="decAdult"
+                    onClick={() => setCount(_id, "DEC_ADULT")}
                   >
                     -
                   </button>
-                  <FontAwesomeIcon icon={faMale} /> {adultCount}{" "}
+                  <FontAwesomeIcon icon={faMale} /> {adult}{" "}
                   <button
                     className="inc"
-                    onClick={(e) => onClick(e)}
-                    name="incAdult"
+                    onClick={() => setCount(_id, "INC_ADULT")}
                   >
                     +
                   </button>
@@ -65,16 +59,14 @@ const AvailableRooms = ({ rooms }) => {
                 <span className="qty-child">
                   <button
                     className="dec"
-                    onClick={(e) => onClick(e)}
-                    name="decChild"
+                    onClick={() => setCount(_id, "DEC_CHILD")}
                   >
                     -
                   </button>
-                  <FontAwesomeIcon icon={faChild} /> {childCount}{" "}
+                  <FontAwesomeIcon icon={faChild} /> {child}{" "}
                   <button
                     className="inc"
-                    onClick={(e) => onClick(e)}
-                    name="incChild"
+                    onClick={() => setCount(_id, "INC_CHILD")}
                   >
                     +
                   </button>
@@ -97,4 +89,4 @@ const mapStateToProps = (state) => ({
   rooms: state.reservation.availableRooms,
 });
 
-export default connect(mapStateToProps)(AvailableRooms);
+export default connect(mapStateToProps, { setCount })(AvailableRooms);

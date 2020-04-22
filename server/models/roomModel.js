@@ -4,29 +4,31 @@ const roomSchema = new mongoose.Schema({
   number: {
     type: Number,
     required: [true, "Please provide room number"],
-    unique: true
+    unique: true,
   },
   type: {
     type: String,
-    required: [true, "Please provide room type"]
+    required: [true, "Please provide room type"],
   },
   capacity: {
     type: Number,
-    required: [true, "Please provide room number"]
+    required: [true, "Please provide room number"],
   },
+  adult: Number,
+  child: Number,
   includes: String,
   photo: {
-    type: String
+    type: String,
     // default: 'no-photo.jpg'
   },
   rate: {
     type: Number,
-    required: [true, "Please provide room rate"]
+    required: [true, "Please provide room rate"],
   },
   createdAt: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
 });
 
 module.exports = mongoose.model("Room", roomSchema);

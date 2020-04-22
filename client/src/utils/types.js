@@ -14,3 +14,7 @@ export const FORM_TYPE = "FORM_TYPE";
 export const AVAILABLE_ROOMS = "AVAILABLE_ROOMS";
 export const SETFORM_DATA = "SETFORM_DATA";
 export const LOAD_USER = "LOAD_USER";
+export const INC_ADULT = "INC_ADULT";
+export const INC_CHILD = "INC_CHILD";
+export const DEC_ADULT = "DEC_ADULT";
+export const DEC_CHILD = "DEC_CHILD";

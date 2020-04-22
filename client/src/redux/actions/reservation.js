@@ -1,5 +1,12 @@
 import axios from "axios";
-import { BOOK_SEARCH, AVAILABLE_ROOMS } from "../../utils/types";
+import {
+  BOOK_SEARCH,
+  AVAILABLE_ROOMS,
+  INC_ADULT,
+  INC_CHILD,
+  DEC_ADULT,
+  DEC_CHILD,
+} from "../../utils/types";
 import moment from "moment-timezone";
 
 export const bookSearch = ({ checkIn, checkOut, rooms, num = 1 }) => async (
@@ -27,5 +34,22 @@ export const bookSearch = ({ checkIn, checkOut, rooms, num = 1 }) => async (
     });
   } catch (error) {
     console.log("error");
+  }
+};
+
+export const setCount = (id, name) => (dispatch) => {
+  switch (name) {
+    case INC_ADULT:
+      dispatch({ type: INC_ADULT, payload: id });
+      break;
+    case DEC_ADULT:
+      dispatch({ type: DEC_ADULT, payload: id });
+      break;
+    case INC_CHILD:
+      dispatch({ type: INC_CHILD, payload: id });
+      break;
+    case DEC_CHILD:
+      dispatch({ type: DEC_CHILD, payload: id });
+      break;
   }
 };
