@@ -5,11 +5,13 @@ import {
   INC_CHILD,
   DEC_ADULT,
   DEC_CHILD,
+  SELECT_ROOM,
 } from "../../utils/types";
 
 const initialState = {
   form: {},
   availableRooms: [],
+  selectedRooms: [],
 };
 
 export default function (state = initialState, action) {
@@ -20,34 +22,41 @@ export default function (state = initialState, action) {
       return { ...state, form: payload };
     case AVAILABLE_ROOMS:
       return { ...state, availableRooms: payload };
-    case INC_ADULT:
-      // state.availableRooms.forEach((room) => {
-      //   if (payload === room._id) return (room.adult += 1);
-      // });
+    case SELECT_ROOM:
       return {
         ...state,
-        availableRooms: [
-          ...state.availableRooms,
-          state.availableRooms.forEach((room) => {
-            if (payload === room._id) room.adult += 1;
-          }),
+        selectedRooms: [
+          ...state.selectedRooms,
+          state.availableRooms.find((room) => room._id === payload),
         ],
+        availableRooms: state.availableRooms.filter(
+          (room) => room._id !== payload
+        ),
       };
+    case INC_ADULT:
+      state.availableRooms.map((room) => {
+        if (payload === room._id) room.adult++;
+      });
+      return { ...state, availableRooms: [...state.availableRooms] };
     case DEC_ADULT:
       state.availableRooms.find((room) => {
-        if (payload === room._id) return (room.adult -= 1);
+        if (payload === room._id) {
+          if (room.adult > 0) room.adult--;
+        }
       });
-      return { ...state };
+      return { ...state, availableRooms: [...state.availableRooms] };
     case INC_CHILD:
       state.availableRooms.find((room) => {
-        if (payload === room._id) room.child += 1;
+        if (payload === room._id) room.child++;
       });
-      return { ...state };
+      return { ...state, availableRooms: [...state.availableRooms] };
     case DEC_CHILD:
       state.availableRooms.find((room) => {
-        if (payload === room._id) return (room.child -= 1);
+        if (payload === room._id) {
+          if (room.child > 0) room.child--;
+        }
       });
-      return { ...state };
+      return { ...state, availableRooms: [...state.availableRooms] };
     default:
       return state;
   }

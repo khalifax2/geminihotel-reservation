@@ -1,16 +1,14 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChild, faMale } from "@fortawesome/free-solid-svg-icons";
 
-import { setCount } from "../../redux/actions/reservation";
+import { setCount, selectRoom } from "../../redux/actions/reservation";
 
 import "./AvailableRooms.css";
 
-const AvailableRooms = ({ rooms, setCount }) => {
-  useEffect(() => {}, [rooms]);
-
+const AvailableRooms = ({ rooms, setCount, selectRoom }) => {
   return (
     <>
       {rooms.map((room) => {
@@ -72,7 +70,9 @@ const AvailableRooms = ({ rooms, setCount }) => {
                   </button>
                 </span>
               </div>
-              <button id="btn-select">Select this room</button>
+              <button id="btn-select" onClick={() => selectRoom(_id)}>
+                Select this room
+              </button>
               <div className="room-price">
                 <span id="rp-head">Start From</span>
                 <span id="rp-tail">${rate} / Night</span>
@@ -89,4 +89,6 @@ const mapStateToProps = (state) => ({
   rooms: state.reservation.availableRooms,
 });
 
-export default connect(mapStateToProps, { setCount })(AvailableRooms);
+export default connect(mapStateToProps, { setCount, selectRoom })(
+  AvailableRooms
+);

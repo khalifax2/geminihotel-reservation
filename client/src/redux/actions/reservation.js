@@ -6,6 +6,7 @@ import {
   INC_CHILD,
   DEC_ADULT,
   DEC_CHILD,
+  SELECT_ROOM,
 } from "../../utils/types";
 import moment from "moment-timezone";
 
@@ -52,4 +53,8 @@ export const setCount = (id, name) => (dispatch) => {
       dispatch({ type: DEC_CHILD, payload: id });
       break;
   }
+};
+
+export const selectRoom = (id) => (dispatch) => {
+  dispatch({ type: SELECT_ROOM, payload: id });
 };

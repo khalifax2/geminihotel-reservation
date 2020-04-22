@@ -18,3 +18,4 @@ export const INC_ADULT = "INC_ADULT";
 export const INC_CHILD = "INC_CHILD";
 export const DEC_ADULT = "DEC_ADULT";
 export const DEC_CHILD = "DEC_CHILD";
+export const SELECT_ROOM = "SELECT_ROOM";
