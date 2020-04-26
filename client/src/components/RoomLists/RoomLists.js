@@ -7,7 +7,7 @@ const RoomLists = ({ selectedRoom }) => {
   {
     return selectedRoom.map((room, idx) => {
       return (
-        <div className="room-breakdown">
+        <div className="room-breakdown" key={idx}>
           <div className="room-title">
             Room {++idx} :<span> {room.title}</span>
           </div>

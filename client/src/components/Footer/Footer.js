@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import "./Footer.css";
 
 const Footer = () => {
   return (
     <div className="footer">
-      <b>GAGO</b>
+      <small>Copyright &copy; Your Website</small>
     </div>
   );
 };

@@ -1,6 +1,5 @@
 .reservation-form {
   background-color: #322b23;
-  height: 350px;
   margin-top: 30px;
   border-radius: 5px;
   width: 300px;
@@ -16,8 +15,8 @@
 
 .bg-reservation {
   background-color: #000;
-  height: 100%;
-  /* position: relative; */
+  height: 100vh;
+  position: relative;
 }
 
 #reservation-label {
@@ -50,5 +49,16 @@
 .r-rooms-drp {
   width: 50px;
   margin-left: 20px;
+}
+
+.submit-reservation {
+  float: right;
+  margin-right: 10px;
+  color: #fff;
+  background-color: rgb(88, 74, 56);
+  border-top-color: rgb(109, 91, 69);
+  border-right-color: rgb(109, 91, 69);
+  border-bottom-color: rgb(109, 91, 69);
+  border-left-color: rgb(109, 91, 69);
 }
 /* */
